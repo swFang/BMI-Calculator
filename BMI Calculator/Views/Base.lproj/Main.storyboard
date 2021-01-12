@@ -55,9 +55,6 @@
                                         </constraints>
                                         <color key="minimumTrackTintColor" red="0.4549019608" green="0.44705882349999998" blue="0.82352941180000006" alpha="0.51797945209999996" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <color key="thumbTintColor" red="0.4549019608" green="0.44705882349999998" blue="0.82352941180000006" alpha="0.49510380990000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="heightSliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Fs7-3a-Sf2"/>
-                                        </connections>
                                     </slider>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-bR-YUu">
                                         <rect key="frame" x="0.0" y="666" width="374" height="21"/>
@@ -127,8 +124,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="heightSlider" destination="Pky-qY-oVp" id="dc2-MT-MLf"/>
                         <outlet property="heightValue" destination="Xcz-1j-2c9" id="NaJ-2p-1GW"/>
-                        <outlet property="weightSlider" destination="s2X-C5-Zcz" id="DJ9-Rk-tr9"/>
+                        <outlet property="weightSlider" destination="s2X-C5-Zcz" id="5ab-lN-cti"/>
                         <outlet property="weightValue" destination="LTF-aL-8qu" id="6qP-bI-nIi"/>
                     </connections>
                 </viewController>

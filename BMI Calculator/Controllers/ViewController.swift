@@ -33,6 +33,9 @@ class ViewController: UIViewController {
         let height = heightSlider.value
         
         let bmi = weight / (height * height)
+        let secondVC = SecondViewController()
+        secondVC.bmiValue = String(bmi)
+        self.present(secondVC, animated: true, completion: nil)
     }
     
     func updateSliderText(_ label: UILabel, updatedValue: Float, units: String) {
