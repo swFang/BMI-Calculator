@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var heightValue: UILabel!
     @IBOutlet weak var weightValue: UILabel!
+    @IBOutlet weak var heightSlider: UISlider!
+    @IBOutlet weak var weightSlider: UISlider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +28,14 @@ class ViewController: UIViewController {
         updateSliderText(weightValue, updatedValue: sender.value, units: "Kg")
     }
     
-    func updateSliderText(_ label: UILabel, updatedValue: Float, units: String) {
+    @IBAction func calculatePressed(_ sender: UIButton) {
+        let weight = weightSlider.value
+        let height = heightSlider.value
         
+        let bmi = weight / (height * height)
+    }
+    
+    func updateSliderText(_ label: UILabel, updatedValue: Float, units: String) {
         let format = units == "m" ? "%.2f" : "%.0f"
         label.text = String(format: format, updatedValue) + units
         
