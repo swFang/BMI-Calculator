@@ -18,7 +18,7 @@ class SecondViewController: UIViewController {
         view.backgroundColor = .red
         
         let label = UILabel()
-        label.text = "Bmi is " + bmiValue
+         " + bmiValue
         label.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
         
         view.addSubview(label)
