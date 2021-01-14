@@ -10,7 +10,8 @@ import UIKit
 
 class CalculateViewController: UIViewController {
 
-    var bmiValue = "0.0"
+    var calculatorBrain = CalculatorBrain()
+    
     @IBOutlet weak var heightValue: UILabel!
     @IBOutlet weak var weightValue: UILabel!
     @IBOutlet weak var heightSlider: UISlider!
@@ -22,7 +23,8 @@ class CalculateViewController: UIViewController {
     }
 
     @IBAction func heightSliderChanged(_ sender: UISlider) {
-        updateSliderText(heightValue, updatedValue: sender.value, units: "m")
+        
+            updateSliderText(heightValue, updatedValue: sender.value, units: "m")
     }
     
     @IBAction func weightSliderChanged(_ sender: UISlider) {
@@ -33,22 +35,22 @@ class CalculateViewController: UIViewController {
         let weight = weightSlider.value
         let height = heightSlider.value
         
-        let bmi = weight / (height * height)
-        bmiValue = String(format: "%.1f", bmi)
+        calculatorBrain.calculateBMI(height: height, weight: weight)
         self.performSegue(withIdentifier: "goToResult", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
             let destinationVC = segue.destination as! ResultsViewController
-            destinationVC.bmiValue = String(bmiValue)
+            destinationVC.bmiValue = calculatorBrain.getBMIValue()
+            destinationVC.advice = calculatorBrain.getAdvice()
+            destinationVC.color = calculatorBrain.getColor()
         }
     }
     
     func updateSliderText(_ label: UILabel, updatedValue: Float, units: String) {
         let format = units == "m" ? "%.2f" : "%.0f"
         label.text = String(format: format, updatedValue) + units
-        
     }
 
 
